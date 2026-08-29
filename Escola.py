@@ -53,6 +53,7 @@ notas = [
 cursor.executemany('''
     INSERT INTO notas (aluno_id,nota) VALUES (?, ?)
 ''', notas)
+conexao.commit()
 print("ARQUIVANDO COM SUCESSO!")
 
 
