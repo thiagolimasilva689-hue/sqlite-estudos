@@ -62,10 +62,11 @@ Questão 1 — Todos os alunos
 Traga todos os campos de todos os alunos da tabela alunos.
 
 R:
-  cursor.execute('SELECT * FROM alunos')
+ 
+"""
+cursor.execute('SELECT * FROM alunos')
 for id,nome,idade,curso in cursor.fetchall():
         print(f" {id}| {nome} | {idade} | {curso}")
-"""
 
 """
 Questão 2 — Alunos de Sistemas de Informação
@@ -76,15 +77,19 @@ SELECT nome, idade
 FROM alunos 
 WHERE curso = 'Sistemas de Informação';
 R:
-   cursor.execute('''SELECT nome, idade 
+  
+"""
+cursor.execute('''SELECT nome, idade 
 FROM alunos "Sistemas de Informação " ''')
 for   nome,idade in cursor.fetchall():
      print(f" {nome} | {idade} ")
-"""
 
 """
 Questão 3 — Média de notas por aluno
 Mostre o nome do aluno e a média das notas dele, ordenado da maior média para a menor.
+
+   
+"""
 
 cursor.execute('''
          SELECT 
@@ -97,12 +102,13 @@ cursor.execute('''
                 ORDER BY AVG(notas.nota) DESC
 ''')
 for   nome,nota in cursor.fetchall():
-     print(f" {nome} | {nota:.2f} ")        
-"""
+     print(f" {nome} | {nota:.2f} ")     
 """
 Questão 4 — Aluno com a maior nota
 Mostre o nome do aluno e a nota mais alta que ele tirou, apenas do aluno com a maior nota.
 
+
+"""
 cursor.execute('''
          SELECT 
                alunos.nome as Nome,
@@ -114,7 +120,6 @@ cursor.execute('''
 ''')
 Nerd = cursor.fetchone()
 print(f"QUE É MAIOR NERD DA SALA É : { Nerd[0] }")
-"""
 
 """Questão 5 — Alunos com média maior que 7
 Mostre o nome do aluno e a média dele, apenas para alunos com média maior que 7."""
